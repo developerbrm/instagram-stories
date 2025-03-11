@@ -35,3 +35,10 @@ export interface ImagesAPIResponse {
   alt: string
   srcArr: PhotoSrc
 }
+
+export interface ImagesState {
+  data: ImagesAPIResponse[]
+  loading: boolean
+  loaded: boolean
+  error: Error | null
+}

@@ -1,9 +1,15 @@
+import { useEffect } from 'react'
+import { useAppDispatch } from '../redux/store'
+import { getImages } from '../redux/slices/imagesSlice/thunks'
+
 function App() {
-  return (
-    <>
-      <div className="m-4 w-full bg-slate-900"></div>
-    </>
-  )
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(getImages())
+  }, [dispatch])
+
+  return <></>
 }
 
 export default App
