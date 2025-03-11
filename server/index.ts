@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 import express from 'express'
 import { ImagesAPIResponse, PexelsApiResponse } from '../models'
-import { API_ROUTES } from '../utilities'
+import { SERVER_API_ROUTES } from '../utilities'
 
 const app = express()
 const API_KEY = import.meta.env.VITE_API_KEY
@@ -9,11 +9,16 @@ const baseUrl = 'https://api.pexels.com/v1/search'
 const port = 3000
 
 app.get(
-  API_ROUTES['images'],
+  SERVER_API_ROUTES['images'],
   async (req: express.Request, res: express.Response) => {
-    const queryString = new URLSearchParams({
-      query: 'indian',
+    const defaultQueryObj = {
+      query: 'people',
       orientation: 'portrait',
+    }
+
+    const queryString = new URLSearchParams({
+      ...defaultQueryObj,
+      ...req.query,
     }).toString()
 
     const config = {
