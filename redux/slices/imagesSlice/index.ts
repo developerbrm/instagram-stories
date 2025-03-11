@@ -20,6 +20,7 @@ export const imagesSlice = createSlice({
     builder.addCase(getImages.fulfilled, (state, action) => {
       state.loading = false
       state.data = action?.payload || []
+      state.loaded = true
     })
     builder.addCase(getImages.rejected, (state, action) => {
       state.data = []
