@@ -32,3 +32,6 @@ export const getErrorMessage = (err: {
     'Something went wrong'
   )
 }
+
+export const getRandomNumberInRange = (min: number = 1, max: number = 10) =>
+  Math.floor(Math.random() * (max - min + 1)) + min

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from '../redux/store'
 import { getImages } from '../redux/slices/imagesSlice/thunks'
+import RenderPeoples from './components/RenderPeoples'
 
 function App() {
   const dispatch = useAppDispatch()
@@ -9,7 +10,11 @@ function App() {
     dispatch(getImages())
   }, [dispatch])
 
-  return <></>
+  return (
+    <>
+      <RenderPeoples />
+    </>
+  )
 }
 
 export default App
